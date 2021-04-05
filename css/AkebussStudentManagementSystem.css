@@ -1,0 +1,654 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	color: black;
+	font-family: "微软雅黑";
+}
+html,
+body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/* background-color: #E7EAEA; */
+}
+h2{
+	position: fixed;
+	right: 0;
+	text-align: center;
+	width: calc(100% - 200px);
+	height: 70px;
+	/* background: linear-gradient(90deg, #e71616 0%, #104fad); */
+	background-color: #393D49;
+	/* color: white; */
+	/* color: rgb(165,188,194); */
+	color: rgb(250,250,250);
+	line-height: 70px;
+	letter-spacing: 3px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.logo{
+	width: 200px;
+	height: 70px;
+	background-color: rgb(28,164,121);
+	position: fixed;
+	left: 0;
+	top: 0;
+	text-align: center;
+	line-height: 70px;
+	color: rgb(240,240,240);
+	font-weight: bold;
+	font-size: 20px;
+	cursor: pointer;	
+}
+.menu-left{
+	position: fixed;
+	left: 0;
+	top: 70px;
+	width: 200px;
+	height: 100%;
+	/* background: linear-gradient(to bottom,#ec008c,#6739b6); */
+	background-color: rgb(42,57,60);
+}
+.Student-information:nth-child(1){
+	margin-top: 0px;
+}
+.Student-information p{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	white-space: nowrap;
+	color: rgb(49,193,147);
+	vertical-align: middle;
+	position: relative;
+}
+.Student-information p:hover{
+	background-color: rgb(52,64,66);
+}
+#StudentManagementSon{
+	position: absolute;
+	right: 10px;
+	top: 17px;
+	padding: 2px 7px 5px 7px;
+	transition: all 0.3s ease-in-out 0s;
+	cursor: pointer;
+}
+#StudentManagementSon img{
+	width: 14px;
+	height: 14px;
+	transition: all 0.5s ease-in-out 0s;
+}
+#StudentManagementSon:hover{
+	background-color: rgb(51,64,66);
+	box-shadow: 0px 0px 10px rgb(30,30,30);
+}
+.Student-information ul{
+	height: 0px;
+	overflow: hidden;
+	transition: all 0.5s ease-in-out 0s;
+}
+.Student-information ul li{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: rgb(180,200,206);
+	cursor: pointer;
+	background-color: rgb(42,57,60);
+}
+.Student-information ul li:hover{
+	background-color: rgb(52,64,66);
+}
+.menu{
+	width: calc(100vw - 200px);
+	height: calc(100% - 70px);
+	position: absolute;
+	right: 0px;
+	top: 70px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#menu-HomePage{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(231,239,244);
+	min-width: 400px;
+	z-index: 100;
+}
+#menu-HomePage img{
+	width: 300px;
+	position: relative;
+	top: calc(50% - 180px);
+	left: calc(50% - 150px);
+}
+#loader_wrpper{
+	display: none;
+	transition: opacity 0.8s ease-in-out 0s;
+}
+.System-MenuPage{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(231,239,244);
+	min-width: 600px;
+	z-index: 100;
+	display: none;
+}
+.System-MenuPage::-webkit-scrollbar{
+	/* display: none; */
+}
+.Search-Wrapper{
+	width: 40%;
+	height: 50px;
+	margin: 20px auto;
+	min-width: 600px;
+}
+.Search-Wrapper input{
+	width: calc(100% - 50px);
+	height: 100%;
+	background: none;
+	background-color: white;
+	appearance: none;
+	outline: none;
+	border: none;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: 0px 1px 5px darkgray;
+	font-size: 16px;
+	text-indent: 1em;
+	float: left;
+}
+.Search-Wrapper span{
+	text-align: center;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: rgb(28,164,121);
+	float: left;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0px 0px 5px rgb(28,164,121);
+	cursor: pointer;
+}
+.Search-Wrapper span img{
+	width: 25px;
+	height: 25px;
+	margin-top: 12px;
+}
+.not-null{
+	color: red;
+	font-size: 14px;
+	text-align: center;
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	display: none;
+}
+@keyframes labelMoveUser{
+	25%{
+		margin-left: 10px;
+	}
+	50%{
+		margin-left: 0px;
+	}
+	75%{
+		margin-left: -10px;
+	}
+	100%{
+		margin-left: 0px;
+	}
+}
+.Student-Wrapper,
+.Update-Wrapper{
+	width: 90%;
+	height: calc(100% - 140px);
+	margin: 0 auto;
+	position: absolute;
+	left: 5%;
+	top: 110px;
+	z-index: 10;
+	overflow: hidden;
+	background-color: white;
+	box-shadow: 0px 0px 20px darkgray;
+	transform: scale(0);
+}
+.Student-Wrapper-Content{
+	width: 100%;
+	height: calc(100% - 50px);
+	overflow: scroll;
+	position: relative;
+}
+.Student-Wrapper-Content::-webkit-scrollbar{/* 背景 */
+	background-color: rgb(28,164,121);
+}
+.Student-Wrapper-Content::-webkit-scrollbar-corner{/* 衔接处 */
+	background-color: rgb(28,164,121);
+}
+.Student-Wrapper-Content::-webkit-scrollbar-thumb{/* 滑块 */
+	background-color: rgb(165,188,194);
+	/* border-radius: 20px; */
+}
+#add-btn-Wrapper{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	background-color: #F2F2F2;
+	background-color: #E7EFF4;
+	text-align: center;
+	cursor: pointer;
+}
+#add-btn-Wrapper img{
+	width: 35px;
+	height: 35px;
+	/* margin-top: 7px; */
+}
+#add-btn-Wrapper p{
+	font-size: 12px;
+	font-weight: bold;
+}
+@keyframes OpenAnimationScaling{
+	from{
+		transform: scale(0);
+		opacity: 0;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+@keyframes CloseAnimationScaling{
+	from{
+		transform: scale(1);
+		opacity: 1;
+	}
+	to{
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+.nav-bar{
+	width: 100%;
+	height: 30px;
+	background-color: rgb(42,57,60);
+	position: relative;
+	cursor: default;
+}
+.Student-Wrapper .nav-bar{
+	height: 50px;
+	background-color: rgb(28,164,121);
+}
+.Student-Wrapper .nav-bar #close-btn{
+	display: none;
+}
+.nav-bar #close-btn,
+#close-Update-Wrapper-btn,
+#close-Add-Wrapper-btn{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	cursor: pointer;
+}
+#add-btn-Wrapper p{
+	position: relative;
+	top: -2px;
+	left: 1px;
+	letter-spacing: 2px;
+}
+.nav-bar #close-btn img,
+#close-Update-Wrapper-btn img,
+#close-Add-Wrapper-btn img{
+	width: 30px;
+	height: 30px;
+}
+.nav-bar li:nth-child(1){
+	color: white;
+	line-height: 31px;
+	text-indent: 1em;
+}
+.Student-Wrapper .nav-bar li:nth-child(1){
+	color: white;
+	line-height: 50px;
+	text-indent: 1em;
+	font-weight: bold;
+	font-size: 20px;
+}
+.Student-Wrapper-title{
+	overflow: hidden;
+	width: 2010px;
+}
+.Student-Wrapper-title li{
+	width: 250px;
+	height: 50px;
+	border: 1px solid darkgray;
+	border-top: none;
+	border-left: none;
+	text-align: center;
+	line-height: 50px;
+	float: left;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: rgb(242,242,242);
+	cursor: default;
+}
+.frist-title{
+	border-left: 1px solid darkgray !important;
+}
+.Student-Wrapper ul{
+	width: 2010px;
+	height: 100px;
+	border-bottom: 1px solid darkgray;
+	cursor: pointer;
+}
+.Student-Wrapper ul li{
+	width: 250px;
+	height: 100px;
+	border-left: none;
+	text-align: center;
+	line-height: 100px;
+	float: left;
+	font-size: 18px;
+	white-space: nowrap;
+	margin-left: 1px;
+	cursor: default;
+}
+.Student-Wrapper ul li:nth-child(1){
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 80px;
+	margin-top: 10px;
+}
+#refresh{
+	position: absolute;
+	top: 15px;
+	left: calc(50% - 55px);
+	width: 110px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+}
+#refresh span{
+	color: white;
+	line-height: 26px;
+	float: left;
+}
+#refresh img{
+	width: 25px;
+	margin-right: 10px;
+	float: left;
+	transition: all 0.5s ease-in-out 0s;
+}
+.update-btn,
+.delete-btn{
+	display: inline-block;
+	width: 80px;
+	height: 35px;
+	background-color: rgb(96,184,121);
+	line-height: 35px !important;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	margin: 0px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.delete-btn{
+	background-color: #FF6D3F;
+}
+.DeleteWindow,
+.DeleteSuccessfulWindow{
+	width: 300px;
+	height: 150px;
+	position: fixed;
+	top: calc(50% - 75px);
+	left: calc(50% - 150px);
+	z-index: 100;
+	box-shadow:0px 0px 10px darkgray;
+	text-align: center;
+	transform: scale(0);
+	opacity: 0;
+	background-color: white;
+}
+.DeleteSuccessfulWindow span,
+.DeleteSuccessfulWindow .alert{
+	background-color: #009E94 !important;
+}
+.alert{
+	width: 100%;
+	height: 30px;
+	background-color: #FF6D3F;
+	color: white;
+	line-height: 30px;
+	text-indent: 10px;
+	text-align: left;
+}
+.alert-text{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 17px;
+	white-space: nowrap;
+}
+.DeleteWindow span{
+	display: inline-block;
+	text-align: center;
+	width: 80px;
+	height:30px;
+	line-height: 30px;
+	color: white;
+	background-color: #FF6D3F;
+	cursor: pointer;
+	margin: 40px 10px 0px 10px;
+}
+.Update-Wrapper-Conent{
+	transform: scale(0);
+	opacity: 0;
+}
+.Update-Wrapper ul{
+	position: relative;
+	top: 0px;
+	width: 100%;
+	height: calc(100% - 30px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.Update-Wrapper ul li{
+	position: relative;
+	height: 35px;
+	margin: 0px auto;
+	width: 450px;
+	margin-bottom: 20px;
+}
+.Update-Wrapper ul li span{
+	display: inline-block;
+	height: 35px;
+	line-height:35px;
+	font-size:18px;
+	white-space: nowrap;
+	width: 15%;
+}
+.Update-Wrapper ul li .not-null-alert{
+	color: red;
+	position: absolute;
+	top: 23%;
+	right: -120px;
+	font-size: 12px;
+	/* animation: NotNullMove 0.1s linear 0s alternate infinite; */
+}
+.Add-Wrapper .not-null-alert{
+	display: none;
+}
+@keyframes NotNullMove{
+	0%{
+		right: -130px;
+	}
+	25%{
+		right: -120px;
+	}
+	75%{
+		right: -110px;
+	}
+	100%{
+		right: -120px;
+	}
+}
+.Update-Wrapper ul form{
+	position: absolute;
+	top: -2px;
+	left: 15%;
+	width: 85%;
+}
+.layui-input-block{
+	margin-left: 0 !important;
+}
+.Update-Wrapper ul li:nth-child(1){
+	box-shadow: 0px 0px 5px rgb(150,150,150);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 130px;
+	height: 150px;
+	margin: 20px auto 40px auto;
+}
+.Update-Wrapper ul li:nth-child(1) input{
+	width: 100%;
+	height: 100%;
+	background: none;
+	appearance: none;
+	cursor: pointer;
+	opacity: 0;
+}
+.sure-update{
+	line-height: 35px;
+	color: white;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	margin-left: -19px;
+	cursor: pointer;
+	background-color: rgb(95,184,120) !important;
+}
+.UpdateSuccessfulWindow{
+	opacity: 0;
+	transform: scale(0);
+}
+.UpdateSuccessfulWindow .alert{
+	background-color: #5FB878 !important;
+}
+.UpdateSuccessfulWindow .Delete-sure-btn{
+	background-color: #5FB878 !important;
+}
+.AddSuccessfulWindow{
+	opacity: 0;
+	transform: scale(0);
+}
+.AddSuccessfulWindow .alert{
+	background-color: #01AAED !important;
+}
+.AddSuccessfulWindow .Delete-sure-btn{
+	background-color: #01AAED !important;
+}
+.Add-Wrapper .nav-bar{
+	background-color: #01AAED !important;
+}
+.AddSuccessfulWindow .Add-sure-btn{
+	background-color: #01AAED !important;
+}
+.sure-add{
+	line-height: 35px;
+	color: white;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	margin-left: -19px;
+	cursor: pointer;
+	background-color: #01AAED !important;
+}
+.add-sex .layui-form-radio>i:hover, .add-sex .layui-form-radioed>i {
+    color: #01AAED !important;
+}
+.add-Grade .layui-form-select dl dd.layui-this {
+    background-color: #01AAED !important;
+    color: #fff;
+}
+.Add-Department .layui-form-select dl dd.layui-this {
+    background-color: #01AAED !important;
+    color: #fff;
+}
+.update-sex .layui-form-select dl dd.layui-this {
+    background-color: #5FB878 !important;
+    color: #fff;
+}
+.Add-Wrapper{
+	position: relative;
+	opacity: 0;
+	transform: scale(0);
+}
+.Update-Wrapper-Conent .nav-bar{
+	background-color: rgb(96,184,121) !important;
+}
+.Update-Wrapper-Conent .not-null-alert{
+	display: none;
+}
+#AddUploadingImage{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgb(0,0,0,0.8);
+	z-index: -100;
+	opacity: 0;
+	transition: all 0.5s ease-in-out 0s;
+}
+#AddUploadingImage p{
+	color: white;
+	text-align: center;
+	position: relative;
+	top: 160px;
+	margin-bottom: 5px;
+}
+#AddUploadingImage div{
+	position: relative;
+	top: 150px;
+	width: 200px;
+	height: 6px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+}
+#AddUploadingImage div span{
+	display: inline-block;
+	background-color: #01AAED;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0px;
+	height: 100%;
+}
+#again-uploading{
+	cursor: pointer;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	background-color: #01AAED;
+	margin-top: 30px;
+}

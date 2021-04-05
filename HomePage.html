@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>阿克布斯学生管理系统</title>
+    <meta content="" charset="utf-8">
+	<!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+    <script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/AkebussStudentManagementSystem.css"/>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="css/loaderStyleStyle.css"/>
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+	<script src="js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body onselectstart="return false">
+	<p class="logo">AkebussCloud</p>
+   <h2>阿克布斯学生管理系统</h2>
+   <div class="menu-left">
+		<div class="Student-information">
+			<p>学生信息管理</p>
+			<i id="StudentManagementSon"><img src="images/tianjia.png" ></i>
+			<ul>
+				<li>进入学生管理系统</li>
+			</ul>
+		</div>
+   </div>
+   <div class="menu">
+	   <div id="loader_wrpper">
+		   <div class="loader_style"></div>
+	   </div>
+	   <span id="menu-HomePage"><!-- 首页 -->
+		   <img src="images/AkbussLogo.png" >
+	   </span>
+	   <div class="System-MenuPage"><!-- 系统界面 -->
+		   <div class="Search-Wrapper"><!-- 搜索 -->
+				<input type="text" name="" id="search-border" value="" placeholder="敬请期待"/>
+				<span id="search-btn"><img src="images/search-2-copy.png" ></span>
+				<p class="not-null">搜索内容不能为空</p>
+			</div>
+		   <div class="Student-Wrapper ui-widget-content WrapperMenu"> <!-- 学生信息 -->
+				<ol class="nav-bar"><!-- 工具栏 -->
+					<li>学生信息</li>
+					<li title="刷新" id="refresh"><img src="images/shuaxin.png" ><span>点击刷新</span></li>
+					<li title="关闭" id="close-btn"><img src="images/guanbi.png" ></li>
+					<li title="新增" id="add-btn-Wrapper"><img src="images/xinzengfenlei.png" ><p>新增</p></li>
+				</ol>
+				<div class="DeleteWindow DeleteWindowWrapper"><!-- 删除提示框 -->
+					<p class="alert">提示</p>
+					<p class="alert-text">是否要删除此条信息？</p>
+					<span class="Delete-sure-btn">确定</span>
+					<span class="Delete-cancel-btn">取消</span>
+				</div>
+				<div class="DeleteSuccessfulWindow DeleteWindow"><!-- 删除成功提示框 -->
+					<p class="alert">删除学生信息</p>
+					<p class="alert-text">删除成功！</p>
+					<span class="Delete-sure-btn">确定</span>
+				</div>
+				<div class="Student-Wrapper-Content">
+					<ol class="Student-Wrapper-title">
+						<li class="frist-title">照片</li>
+						<li>学号</li>
+						<li>姓名</li>
+						<li>年龄</li>
+						<li>性别</li>
+						<li>班级</li>
+						<li>系部</li>
+						<li>操作</li>
+					</ol>
+					<p id="not-student-information" style="display: none;font-size: 20px;text-align: center;position: relative;top: 100px;">无学生信息！请先添加！</p>
+					<div>
+						
+					</div>
+					<!-- <ul>
+						<li style="background-image: url(images/gsj.jpg);"></li>
+						<li>2018331268</li>
+						<li>谷世杰</li>
+						<li>19岁</li>
+						<li>男</li>
+						<li>2018级应用技术班</li>
+						<li>互联网学院</li>
+						<li><span class="update-btn">修改</span><span class="delete-btn">删除</span></li>
+					</ul> -->
+				</div>
+		   </div>
+		   <div class="Update-Wrapper ui-widget-content Update-Wrapper-Conent WrapperMenu"><!-- 修改学生信息 -->
+				<ol class="nav-bar"><!-- 工具栏 -->
+					<li>修改学生信息</li>
+					<li title="关闭" id="close-Update-Wrapper-btn"><img src="images/guanbi.png" ></li>
+				</ol>
+				<ul>
+					<li><input title="点击更换照片" type="file" name="update-StudentHeadImage" id="update-StudentHeadImage" value="" /></li>
+					<li>
+						<span>学号：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+							    <div class="layui-input-block">
+							      <input id="StudentId" name="title" class="layui-input" type="text" disabled="disabled" placeholder="请输入学号" autocomplete="off" lay-verify="title">
+							    </div>
+							</div>
+						</form>
+						<!-- <a class="not-null-alert">学号不能为空</a> -->
+					</li>
+					<li>
+						<span>姓名：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+							    <div class="layui-input-block">
+							      <input name="title" id="update-StudentInfor-Name" class="layui-input update-form-input" type="text" placeholder="请输入姓名" autocomplete="off" lay-verify="title">
+							    </div>
+							</div>
+						</form>
+						<a class="not-null-alert">姓名不能为空</a>
+					</li>
+					<li>
+						<span>年龄：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+							    <div class="layui-input-block">
+							      <input name="title" id="update-StudentInfor-Age" class="layui-input update-form-input" type="text" placeholder="请输入年龄" autocomplete="off" lay-verify="title">
+							    </div>
+							</div>
+						</form>
+						<a class="not-null-alert">年龄不能为空</a>
+					</li>
+					<li class="update-sex">
+						<span>性别：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<input name="u-sex" id="update-man" title="男" type="radio" checked="checked" value="男">
+							<input name="u-sex" id="update-woman" title="女" type="radio" value="女">
+						</form>
+					</li>
+					<li class="update-Grade">
+						<span>班级：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+							    <div class="layui-input-block">
+							      <select class="update-form-input" id="update-StudentInfor-Grade" name="interest" lay-filter="aihao">
+							        <option class="update-Grade-son" value="" selected=""></option>
+							        <option class="update-Grade-son" value="18级计算机应用技术班">18级计算机应用技术班</option>
+							        <option class="update-Grade-son" value="18级计算机数字媒体技术班">18级计算机数字媒体技术班</option>
+							        <option class="update-Grade-son" value="18级计算机网络技术班">18级计算机网络技术班</option>
+							        <option class="update-Grade-son" value="18级计算机信息管理技术班">18级计算机信息管理技术班</option>
+							      </select>
+							    </div>
+							  </div>
+							  <a class="not-null-alert">请选择班级</a>
+						</form>
+					</li>
+					<li>
+						<span>系部：</span>
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+							    <div class="layui-input-block">
+							      <select class="update-form-input" id="update-StudentInfor-department" name="interest" lay-filter="aihao">
+							        <option class="update-department-son" value=""  selected=""></option>
+							        <option class="update-department-son" value="互联网学院">互联网学院</option>
+							        <option class="update-department-son" value="电子商务学院">电子商务学院</option>
+							        <option class="update-department-son" value="电气学院">电气学院</option>
+							      </select>
+							    </div>
+							  </div>
+						</form>
+						<a class="not-null-alert">请选择系部</a>
+					</li>
+					<li>
+						 <button class="layui-btn sure-update" type="button">确定修改</button>
+					</li>
+				</ul>
+				<div class="DeleteWindow UpdateSuccessfulWindow"><!-- 修改成功提示框 -->
+					<p class="alert">修改学生信息</p>
+					<p class="alert-text">修改成功！</p>
+					<span class="Delete-sure-btn">确定</span>
+				</div>
+		   </div>
+		   <div class="Update-Wrapper ui-widget-content Add-Wrapper WrapperMenu" style="left: 0px !important;top: 0 !important;"><!-- 增加学生信息 -->
+		   		<div id="AddUploadingImage">
+					<div>
+						<span id="AddUploadingImage-square"></span>
+					</div>
+					<p>正在上传学生照片...</p>
+					<p id="AddUploadingImage-number">0%</p>
+					<p id="again-uploading">重新上传</p>
+		   		</div>		
+						<ol class="nav-bar"><!-- 工具栏 -->
+		   					<li>增加学生信息</li>
+		   					<li title="关闭" id="close-Add-Wrapper-btn"><img src="images/guanbi.png" ></li>
+		   				</ol>
+		   				<ul>
+		   					<li style="background-image: url(images/touxiang.png);"><input title="点击更换照片" type="file" name="add-StudentHeadImage" id="add-StudentHeadImage" value="" /></li>
+		   					<li>
+		   						<span>学号：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<div class="layui-form-item">
+		   							    <div class="layui-input-block">
+		   							      <input name="title" id="add-StudentId" class="layui-input add-form-input" type="text" placeholder="请输入学号" autocomplete="off" lay-verify="title">
+		   							    </div>
+		   							</div>
+		   						</form>
+		   						<a class="not-null-alert">学号不能为空</a>
+		   					</li>
+		   					<li>
+		   						<span>姓名：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<div class="layui-form-item">
+		   							    <div class="layui-input-block">
+		   							      <input id="add-StudentName" name="title" class="layui-input add-form-input" type="text" placeholder="请输入姓名" autocomplete="off" lay-verify="title">
+		   							    </div>
+		   							</div>
+		   						</form>
+		   						<a class="not-null-alert">姓名不能为空</a>
+		   					</li>
+		   					<li>
+		   						<span>年龄：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<div class="layui-form-item">
+		   							    <div class="layui-input-block">
+		   							      <input id="add-StudentAge" name="title" class="layui-input add-form-input" type="text" placeholder="请输入年龄" autocomplete="off" lay-verify="title">
+		   							    </div>
+		   							</div>
+		   						</form>
+		   						<a class="not-null-alert">年龄不能为空</a>
+		   					</li>
+		   					<li class="update-sex add-sex">
+		   						<span>性别：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<input name="sex" id="add-man" title="男" type="radio" checked="checked" value="男">
+		   							<input name="sex" id="add-woman" title="女" type="radio" value="女">
+		   						</form>
+		   					</li>
+		   					<li class="update-Grade add-Grade">
+		   						<span>班级：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<div class="layui-form-item">
+		   							    <div class="layui-input-block">
+		   							      <select id="add-StudentGrade" name="interest" class="add-form-input" lay-filter="aihao">
+		   							        <option value="" selected=""></option>
+		   							        <option value="18级计算机应用技术班">18级计算机应用技术班</option>
+		   							        <option value="18级计算机数字媒体技术班">18级计算机数字媒体技术班</option>
+		   							        <option value="18级计算机网络技术班">18级计算机网络技术班</option>
+		   							        <option value="18级计算机信息管理技术班">18级计算机信息管理技术班</option>
+		   							      </select>
+		   							    </div>
+		   							  </div>
+		   							  <a class="not-null-alert">请选择班级</a>
+		   						</form>
+		   					</li>
+		   					<li class="Add-Department">
+		   						<span>系部：</span>
+		   						<form class="layui-form layui-form-pane" action="">
+		   							<div class="layui-form-item">
+		   							    <div class="layui-input-block">
+		   							      <select id="add-StudentDepartment" name="interest" lay-filter="aihao" class="add-form-input">
+		   							        <option value=""  selected=""></option>
+		   							        <option value="互联网学院">互联网学院</option>
+		   							        <option value="电子商务学院">电子商务学院</option>
+		   							        <option value="电气学院">电气学院</option>
+		   							      </select>
+		   							    </div>
+		   							  </div>
+		   						</form>
+		   						<a class="not-null-alert">请选择系部</a>
+		   					</li>
+		   					<li>
+		   						<button class="layui-btn sure-add" id="add-infor-btn" type="button">确定添加</button>
+							</li>
+		   				</ul>
+		   				<div class="DeleteWindow AddSuccessfulWindow"><!-- 修改成功提示框 -->
+		   					<p class="alert">增加学生信息</p>
+		   					<p class="alert-text">增加成功！</p>
+		   					<span class="Add-sure-btn">确定</span>
+		   				</div>
+		   </div>
+	   </div>
+   </div>
+</body>
+</html>
+<script src="./js/AkebussStudentManagementSystem.js" type="text/javascript" charset="utf-8"></script>
+<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
